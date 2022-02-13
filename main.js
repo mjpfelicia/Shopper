@@ -26,32 +26,6 @@ function mostraSlides(direcao) {
 
 }
 
-
-let fotos = document.querySelectorAll(".box-categoria");
-let pagina = 0;
-const translateX = -55;
-
-function trocaSlide(movimentacaoFoto) {
-    if (pagina === 0 && movimentacaoFoto === -1) {
-        pagina = fotos.length - 1;
-    } else if (pagina === (fotos.length - 1) && movimentacaoFoto === 1) {
-        pagina = 0;
-    } else {
-        pagina = pagina + movimentacaoFoto;
-    }
-
-    const novoSlide = fotos[pagina].cloneNode(true);
-
-    console.log({ pagina, novoSlide, slideRemovido: fotos[pagina] });
-
-    pagina = pagina + movimentacaoFoto;
-    const carroselFotos = document.querySelector(".box-categoria-fotos-conteudo");
-    carroselFotos.style.transform = `translateX(${translateX * (pagina+1)}px)`;
-
-    carroselFotos.appendChild(novoSlide);
-    // fotos[pagina].remove();
-}
-
 /**@type {Array<HTMLElement>} */
 const imagemsLook = document.querySelectorAll(".box-look-perfeito");
 /**@type {Array<HTMLElement>} */
@@ -81,7 +55,7 @@ function passaSlide(direcao) {
 
         if (idx === comecoDaTroca) {
             console.log({ comecoDaTroca, idx });
-            dot.style.backgroundColor = "#a6a6a6";
+            dot.style.backgroundColor = "#ff6f61";
         }
     });;
 
